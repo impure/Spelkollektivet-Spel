@@ -35,90 +35,108 @@ class _MyHomePageState extends State<MyHomePage> {
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
-			body: Column(
-				children: <Widget>[
-					Row(
+			body: Center(
+				child: FractionallySizedBox(
+					widthFactor: 0.5,
+					heightFactor: 0.5,
+					child: Column(
 						children: <Widget>[
 							Flexible(
 								fit: FlexFit.tight,
-								child: Text(itemsCanBeBought[0].name),
+								child: Row(
+									children: <Widget>[
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(itemsCanBeBought[0].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(itemsCanBeBought[1].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(itemsCanBeBought[2].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(itemsCanBeBought[3].name),
+										),
+									],
+								),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: SizedBox(),
+								child: Row(
+									children: <Widget>[
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[0].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[1].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[2].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[3].name),
+										),
+									],
+								),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: SizedBox(),
+								child: Row(
+									children: <Widget>[
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[4].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[5].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[6].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[7].name),
+										),
+									],
+								),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: SizedBox(),
+								child: Row(
+									children: <Widget>[
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[8].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[9].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[10].name),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: Text(cardsCanBeBought[11].name),
+										),
+									],
+								),
 							),
 						],
 					),
-					Row(
-						children: <Widget>[
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-						],
-					),
-					Row(
-						children: <Widget>[
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-						],
-					),
-					Row(
-						children: <Widget>[
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: SizedBox(),
-							),
-						],
-					),
-				],
-			)
+				),
+			),
 		);
 	}
 }
