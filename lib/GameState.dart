@@ -74,6 +74,22 @@ void initGameState() {
   cardPool.add(Card.StandUp());
   cardPool.add(Card.StandUp());
 
+  // For debugging
+  cardPool.add(Card.HouseMeeting());
+  cardPool.add(Card.SGDC());
+  cardPool.add(Card.SGDC());
+  cardPool.add(Card.SGDC());
+  cardPool.add(Card.SGDC());
+  cardPool.add(Card.SGDC());
+  cardPool.add(Card.StandUp());
+  cardPool.add(Card.StandUp());
+  cardPool.add(Card.StandUp());
+  cardPool.add(Card.StandUp());
+  cardPool.add(Card.StandUp());
+  cardPool.add(Card.StandUp());
+  cardPool.add(Card.StandUp());
+  cardPool.add(Card.StandUp());
+
   itemPool.add(ItemCard.Treadmill());
   itemPool.add(ItemCard.Treadmill());
   itemPool.add(ItemCard.Treadmill());
