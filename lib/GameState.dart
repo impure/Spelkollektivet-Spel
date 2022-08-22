@@ -12,8 +12,8 @@ RandomBag<Card> cardPoolDiscards = RandomBag<Card>();
 RandomBag<ItemCard> itemPool = RandomBag<ItemCard>();
 RandomBag<ItemCard> itemDiscards = RandomBag<ItemCard>();
 
-List<Card> cardsCanBeBought = <Card>[];
-List<ItemCard> itemsCanBeBought = <ItemCard>[];
+Map<int, Card> cardsCanBeBought = <int, Card>{};
+Map<int, ItemCard> itemsCanBeBought = <int, ItemCard>{};
 
 void startRound() {
   assert(cardsCanBeBought.isEmpty);
@@ -27,7 +27,7 @@ void startRound() {
         break;
       }
     }
-    itemsCanBeBought.add(itemPool.getRandomItem(rng));
+    itemsCanBeBought[i] = itemPool.getRandomItem(rng);
   }
 
   for (int i = 0; i < 12; i++) {
@@ -36,20 +36,16 @@ void startRound() {
       cardPoolDiscards = RandomBag<Card>();
       // TODO: end game if ran out of cards
     }
-    cardsCanBeBought.add(cardPool.getRandomItem(rng));
+    cardsCanBeBought[i] = cardPool.getRandomItem(rng);
   }
 }
 
 void endRound() {
 
-  for (int i = 0; i < cardsCanBeBought.length; i++) {
-    cardPoolDiscards.add(cardsCanBeBought[i]);
-  }
+  cardsCanBeBought.values.forEach(cardPoolDiscards.add);
   cardsCanBeBought.clear();
 
-  for (int i = 0; i < itemsCanBeBought.length; i++) {
-    itemDiscards.add(itemsCanBeBought[i]);
-  }
+  itemsCanBeBought.values.forEach(itemDiscards.add);
   itemsCanBeBought.clear();
 }
 

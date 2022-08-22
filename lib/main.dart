@@ -47,42 +47,19 @@ class _MyHomePageState extends State<MyHomePage> {
 									children: <Widget>[
 										Flexible(
 											fit: FlexFit.tight,
-											child: itemsCanBeBought[0].makeCard(),
+											child: itemsCanBeBought[0]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: itemsCanBeBought[1].makeCard(),
+											child: itemsCanBeBought[1]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: itemsCanBeBought[2].makeCard(),
+											child: itemsCanBeBought[2]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: itemsCanBeBought[3].makeCard(),
-										),
-									],
-								),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: Row(
-									children: <Widget>[
-										Flexible(
-											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[0].name),
-										),
-										Flexible(
-											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[1].name),
-										),
-										Flexible(
-											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[2].name),
-										),
-										Flexible(
-											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[3].name),
+											child: itemsCanBeBought[3]?.makeCard() ?? const SizedBox(),
 										),
 									],
 								),
@@ -93,19 +70,19 @@ class _MyHomePageState extends State<MyHomePage> {
 									children: <Widget>[
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[4].name),
+											child: cardsCanBeBought[0]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[5].name),
+											child: cardsCanBeBought[1]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[6].name),
+											child: cardsCanBeBought[2]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[7].name),
+											child: cardsCanBeBought[3]?.makeCard() ?? const SizedBox(),
 										),
 									],
 								),
@@ -116,19 +93,42 @@ class _MyHomePageState extends State<MyHomePage> {
 									children: <Widget>[
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[8].name),
+											child: cardsCanBeBought[4]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[9].name),
+											child: cardsCanBeBought[5]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[10].name),
+											child: cardsCanBeBought[6]?.makeCard() ?? const SizedBox(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(cardsCanBeBought[11].name),
+											child: cardsCanBeBought[7]?.makeCard() ?? const SizedBox(),
+										),
+									],
+								),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: Row(
+									children: <Widget>[
+										Flexible(
+											fit: FlexFit.tight,
+											child: cardsCanBeBought[8]?.makeCard() ?? const SizedBox(),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: cardsCanBeBought[9]?.makeCard() ?? const SizedBox(),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: cardsCanBeBought[10]?.makeCard() ?? const SizedBox(),
+										),
+										Flexible(
+											fit: FlexFit.tight,
+											child: cardsCanBeBought[11]?.makeCard() ?? const SizedBox(),
 										),
 									],
 								),
