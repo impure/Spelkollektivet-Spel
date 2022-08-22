@@ -20,23 +20,23 @@ void startRound() {
   assert(itemsCanBeBought.isEmpty);
 
   for (int i = 0; i < 4; i++) {
+    if (itemPool.empty) {
+      itemPool = itemDiscards;
+      itemDiscards = RandomBag<ItemCard>();
+      if (itemPool.empty) {
+        break;
+      }
+    }
+    itemsCanBeBought.add(itemPool.getRandomItem(rng));
+  }
+
+  for (int i = 0; i < 12; i++) {
     if (cardPool.empty) {
       cardPool = cardPoolDiscards;
       cardPoolDiscards = RandomBag<Card>();
       // TODO: end game if ran out of cards
     }
     cardsCanBeBought.add(cardPool.getRandomItem(rng));
-  }
-
-  for (int i = 0; i < 12; i++) {
-    if (itemPool.empty) {
-      itemPool = itemDiscards;
-      itemDiscards = RandomBag<ItemCard>();
-      if (itemPool.empty) {
-        return;
-      }
-    }
-    itemsCanBeBought.add(itemPool.getRandomItem(rng));
   }
 }
 
@@ -70,6 +70,13 @@ void initGameState() {
   cardPool.add(Card.StandUp());
   cardPool.add(Card.StandUp());
   cardPool.add(Card.StandUp());
+
+  itemPool.add(ItemCard.Treadmill());
+  itemPool.add(ItemCard.Treadmill());
+  itemPool.add(ItemCard.Treadmill());
+  itemPool.add(ItemCard.Hammock());
+  itemPool.add(ItemCard.Hammock());
+  itemPool.add(ItemCard.Hammock());
 
   startRound();
 }

@@ -35,6 +35,90 @@ class _MyHomePageState extends State<MyHomePage> {
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
+			body: Column(
+				children: <Widget>[
+					Row(
+						children: <Widget>[
+							Flexible(
+								fit: FlexFit.tight,
+								child: Text(itemsCanBeBought[0].name),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+						],
+					),
+					Row(
+						children: <Widget>[
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+						],
+					),
+					Row(
+						children: <Widget>[
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+						],
+					),
+					Row(
+						children: <Widget>[
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: SizedBox(),
+							),
+						],
+					),
+				],
+			)
 		);
 	}
 }
