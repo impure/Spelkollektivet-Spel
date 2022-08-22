@@ -93,6 +93,26 @@ class ItemCard extends Card {
 		required super.action,
 		required this.room,
 	});
+	
+	factory ItemCard.Hammock() {
+		return ItemCard(
+			name: "Hammock",
+			description: "+1 Additional Card",
+			value: 3500,
+			action: () {},
+			room: Room.PATIO,
+		);
+	}
+
+	factory ItemCard.Treadmill() {
+		return ItemCard(
+			name: "Treadmill",
+			description: "+1 Additional Card",
+			value: 4000,
+			action: () {},
+			room: Room.GYM,
+		);
+	}
 
 	final Room room;
 
