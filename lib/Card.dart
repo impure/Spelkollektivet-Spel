@@ -51,21 +51,30 @@ class Card {
 	}
 
 	Widget makeCard(ThemeData theme) {
-		return Padding(
-			padding: const EdgeInsets.all(5),
-			child: Material(
-				borderRadius: const BorderRadius.all(Radius.circular(20)),
-				color: theme.cardColor,
-				elevation: 5,
-				child: Column(
-					mainAxisAlignment: MainAxisAlignment.center,
-					children: <Widget>[
-						Text(name),
-						const SizedBox(height: 5),
-						Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
-						const SizedBox(height: 5),
-						Text("$value SEK", style: const TextStyle(fontSize: 10)),
-					],
+		return Align(
+			alignment: Alignment.center,
+			child: AspectRatio(
+				aspectRatio: 1,
+				child: Padding(
+					padding: const EdgeInsets.all(5),
+					child: Material(
+						borderRadius: const BorderRadius.all(Radius.circular(20)),
+						color: theme.cardColor,
+						elevation: 5,
+						child: Padding(
+							padding: const EdgeInsets.all(5),
+							child: Column(
+								mainAxisAlignment: MainAxisAlignment.center,
+								children: <Widget>[
+									Text(name),
+									const SizedBox(height: 5),
+									Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
+									const SizedBox(height: 5),
+									Text("$value SEK", style: const TextStyle(fontSize: 10)),
+								],
+							),
+						),
+					),
 				),
 			),
 		);
@@ -142,23 +151,31 @@ class ItemCard extends Card {
 
 	@override
 	Widget makeCard(ThemeData theme) {
-
-		return Padding(
-			padding: const EdgeInsets.all(5),
-			child: Material(
-				borderRadius: const BorderRadius.all(Radius.circular(20)),
-				color: theme.cardColor,
-				elevation: 5,
-				child: Column(
-					mainAxisAlignment: MainAxisAlignment.center,
-					children: <Widget>[
-						Text(room.name, style: const TextStyle(fontSize: 10),),
-						Text(name),
-						const SizedBox(height: 5),
-						Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
-						const SizedBox(height: 5),
-						Text("$value SEK", style: const TextStyle(fontSize: 10)),
-					],
+		return Align(
+			alignment: Alignment.center,
+			child: AspectRatio(
+				aspectRatio: 1,
+				child: Padding(
+					padding: const EdgeInsets.all(5),
+					child: Material(
+						borderRadius: const BorderRadius.all(Radius.circular(20)),
+						color: theme.cardColor,
+						elevation: 5,
+						child: Padding(
+							padding: const EdgeInsets.all(5),
+							child: Column(
+								mainAxisAlignment: MainAxisAlignment.center,
+								children: <Widget>[
+									Text(room.name, style: const TextStyle(fontSize: 10)),
+									Text(name),
+									const SizedBox(height: 5),
+									Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
+									const SizedBox(height: 5),
+									Text("$value SEK", style: const TextStyle(fontSize: 10)),
+								],
+							),
+						),
+					),
 				),
 			),
 		);
