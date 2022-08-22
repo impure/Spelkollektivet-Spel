@@ -43,13 +43,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
-  cupertino_icons:
+  dart_lints:
     dependency: "direct main"
     description:
-      name: cupertino_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.5"
+      path: "."
+      ref: main
+      resolved-ref: b3c2bbdabfda528e9296d7d555e8405d41bc9744
+      url: "https://gitlab.com/azuredown/dart-lints.git"
+    source: git
+    version: "1.0.0+1"
   fake_async:
     dependency: transitive
     description:
@@ -58,7 +60,7 @@ packages:
     source: hosted
     version: "1.3.0"
   flutter:
-    dependency: "direct main"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
