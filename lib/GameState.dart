@@ -2,6 +2,7 @@
 import 'dart:math';
 
 import 'package:spelkollektivet_spel/Card.dart';
+import 'package:spelkollektivet_spel/Player.dart';
 import 'package:tools/RandomBag.dart';
 
 Random rng = Random();
@@ -14,6 +15,9 @@ RandomBag<ItemCard> itemDiscards = RandomBag<ItemCard>();
 
 Map<int, Card> cardsCanBeBought = <int, Card>{};
 Map<int, ItemCard> itemsCanBeBought = <int, ItemCard>{};
+
+int currentPlayerIndex = 0;
+List<Player> players = <Player>[];
 
 void startRound() {
   assert(cardsCanBeBought.isEmpty);
@@ -35,6 +39,9 @@ void startRound() {
       cardPool = cardPoolDiscards;
       cardPoolDiscards = RandomBag<Card>();
       // TODO: end game if ran out of cards
+      if (cardPool.empty) {
+        break;
+      }
     }
     cardsCanBeBought[i] = cardPool.getRandomItem(rng);
   }
@@ -73,6 +80,8 @@ void initGameState() {
   itemPool.add(ItemCard.Hammock());
   itemPool.add(ItemCard.Hammock());
   itemPool.add(ItemCard.Hammock());
+
+  players.add(Player(cardPool, rng));
 
   startRound();
 }

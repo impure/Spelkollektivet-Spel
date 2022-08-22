@@ -35,7 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
-			body: Center(
+			body: Align(
+				alignment: const Alignment(0, -0.5),
 				child: FractionallySizedBox(
 					widthFactor: 0.75,
 					heightFactor: 0.5,
@@ -64,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
 									],
 								),
 							),
+							const Divider(),
 							Flexible(
 								fit: FlexFit.tight,
 								child: Row(
