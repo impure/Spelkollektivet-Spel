@@ -1,5 +1,7 @@
 
 
+import 'package:flutter/widgets.dart';
+
 class Card {
 
 	const Card({
@@ -44,6 +46,19 @@ class Card {
 			description: "+3 cards",
 			value: 500,
 			action: () {},
+		);
+	}
+
+	Widget makeCard() {
+		return Column(
+			mainAxisAlignment: MainAxisAlignment.center,
+			children: <Widget>[
+				Text(name),
+				const SizedBox(height: 5),
+				Text(description, style: const TextStyle(fontSize: 9)),
+				const SizedBox(height: 5),
+				Text("$value SEK", style: const TextStyle(fontSize: 10)),
+			],
 		);
 	}
 

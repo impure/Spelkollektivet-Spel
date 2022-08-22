@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 		return Scaffold(
 			body: Center(
 				child: FractionallySizedBox(
-					widthFactor: 0.5,
+					widthFactor: 0.75,
 					heightFactor: 0.5,
 					child: Column(
 						children: <Widget>[
@@ -47,19 +47,19 @@ class _MyHomePageState extends State<MyHomePage> {
 									children: <Widget>[
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(itemsCanBeBought[0].name),
+											child: itemsCanBeBought[0].makeCard(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(itemsCanBeBought[1].name),
+											child: itemsCanBeBought[1].makeCard(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(itemsCanBeBought[2].name),
+											child: itemsCanBeBought[2].makeCard(),
 										),
 										Flexible(
 											fit: FlexFit.tight,
-											child: Text(itemsCanBeBought[3].name),
+											child: itemsCanBeBought[3].makeCard(),
 										),
 									],
 								),
