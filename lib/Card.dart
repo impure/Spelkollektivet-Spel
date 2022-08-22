@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Card {
@@ -49,16 +50,24 @@ class Card {
 		);
 	}
 
-	Widget makeCard() {
-		return Column(
-			mainAxisAlignment: MainAxisAlignment.center,
-			children: <Widget>[
-				Text(name),
-				const SizedBox(height: 5),
-				Text(description, style: const TextStyle(fontSize: 9)),
-				const SizedBox(height: 5),
-				Text("$value SEK", style: const TextStyle(fontSize: 10)),
-			],
+	Widget makeCard(ThemeData theme) {
+		return Padding(
+			padding: const EdgeInsets.all(5),
+			child: Material(
+				borderRadius: const BorderRadius.all(Radius.circular(20)),
+				color: theme.cardColor,
+				elevation: 5,
+				child: Column(
+					mainAxisAlignment: MainAxisAlignment.center,
+					children: <Widget>[
+						Text(name),
+						const SizedBox(height: 5),
+						Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
+						const SizedBox(height: 5),
+						Text("$value SEK", style: const TextStyle(fontSize: 10)),
+					],
+				),
+			),
 		);
 	}
 
@@ -112,7 +121,7 @@ class ItemCard extends Card {
 	factory ItemCard.Hammock() {
 		return ItemCard(
 			name: "Hammock",
-			description: "+1 Additional Card",
+			description: "+50 SEK",
 			value: 3500,
 			action: () {},
 			room: Room.PATIO,
@@ -130,5 +139,29 @@ class ItemCard extends Card {
 	}
 
 	final Room room;
+
+	@override
+	Widget makeCard(ThemeData theme) {
+
+		return Padding(
+			padding: const EdgeInsets.all(5),
+			child: Material(
+				borderRadius: const BorderRadius.all(Radius.circular(20)),
+				color: theme.cardColor,
+				elevation: 5,
+				child: Column(
+					mainAxisAlignment: MainAxisAlignment.center,
+					children: <Widget>[
+						Text(room.name, style: const TextStyle(fontSize: 10),),
+						Text(name),
+						const SizedBox(height: 5),
+						Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
+						const SizedBox(height: 5),
+						Text("$value SEK", style: const TextStyle(fontSize: 10)),
+					],
+				),
+			),
+		);
+	}
 
 }
