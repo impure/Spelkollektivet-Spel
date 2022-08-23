@@ -147,13 +147,30 @@ class _MyHomePageState extends State<MyHomePage> {
 							),
 						),
 					),
+					const SizedBox(height: 20),
 					Flexible(
-						flex: 3,
+						flex: 2,
 						fit: FlexFit.tight,
-						child: GridView.count(
-							crossAxisCount: 4,
-							children: currentPlayer.getHandCards(Theme.of(context)),
+						child: Padding(
+							padding: const EdgeInsets.symmetric(horizontal: 20),
+							child: Column(
+								children: <Widget>[
+									Text("Hand value: 1000 SEK"),
+									Flexible(
+										fit: FlexFit.tight,
+										child: SizedBox(),
+									),
+									Row(
+										children: currentPlayer.getHandCards(Theme.of(context)),
+									),
+								],
+							),
 						),
+					),
+					const Flexible(
+						flex: 1,
+						fit: FlexFit.tight,
+						child: SizedBox(),
 					),
 				],
 			),
