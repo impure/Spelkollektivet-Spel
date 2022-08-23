@@ -51,27 +51,32 @@ class GameCard {
 	}
 
 	Widget makeCard(ThemeData theme) {
-		return Align(
-			alignment: Alignment.center,
-			child: AspectRatio(
-				aspectRatio: 1,
-				child: Padding(
-					padding: const EdgeInsets.all(5),
-					child: Material(
-						borderRadius: const BorderRadius.all(Radius.circular(20)),
-						color: theme.cardColor,
-						elevation: 5,
+		return Center(
+			child: ConstrainedBox(
+				constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
+				child: Align(
+					alignment: Alignment.center,
+					child: AspectRatio(
+						aspectRatio: 1,
 						child: Padding(
 							padding: const EdgeInsets.all(5),
-							child: Column(
-								mainAxisAlignment: MainAxisAlignment.center,
-								children: <Widget>[
-									Text(name),
-									const SizedBox(height: 5),
-									Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
-									const SizedBox(height: 5),
-									Text("$value SEK", style: const TextStyle(fontSize: 10)),
-								],
+							child: Material(
+								borderRadius: const BorderRadius.all(Radius.circular(20)),
+								color: theme.cardColor,
+								elevation: 5,
+								child: Padding(
+									padding: const EdgeInsets.all(5),
+									child: Column(
+										mainAxisAlignment: MainAxisAlignment.center,
+										children: <Widget>[
+											Text(name),
+											const SizedBox(height: 5),
+											Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
+											const SizedBox(height: 5),
+											Text("$value SEK", style: const TextStyle(fontSize: 10)),
+										],
+									),
+								),
 							),
 						),
 					),
