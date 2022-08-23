@@ -167,7 +167,7 @@ class ItemCard extends GameCard {
 			description: "+50 SEK",
 			value: 3500,
 			action: (Player player) {
-				player.money += 50;
+				player.bonusMoney += 50;
 			},
 			room: Room.PATIO,
 		);

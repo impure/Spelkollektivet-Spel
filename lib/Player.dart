@@ -9,6 +9,11 @@ import 'package:tools/RandomBag.dart';
 const int INITIAL_CARDS = 10;
 const int CARDS_TO_DRAW = 5;
 
+enum Phase {
+	ACTION,
+	BUY,
+}
+
 class Player {
 
 	Player(RandomBag<GameCard> allCards, Random rng) {
@@ -22,6 +27,8 @@ class Player {
 		for (int i = 0; i < CARDS_TO_DRAW; i++) {
 			hand.add(deck.getRandomItem(rng));
 		}
+		bonusMoney = 0;
+		currentPhase = Phase.ACTION;
 	}
 
 	final RandomBag<GameCard> deck = RandomBag<GameCard>();
@@ -31,7 +38,9 @@ class Player {
 
 	final List<ItemCard> cards = <ItemCard>[];
 
-	int money = 0;
+	int bonusMoney = 0;
+
+	Phase currentPhase = Phase.ACTION;
 
 	List<Widget> getHandCards(ThemeData theme, void Function(GameCard) onTap) {
 		final List<Widget> cards = <Widget>[];
