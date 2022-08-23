@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spelkollektivet_spel/Card.dart';
 import 'package:spelkollektivet_spel/GameState.dart';
 
 void main() {
@@ -161,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
 												fit: FlexFit.tight,
 												child: SizedBox(),
 											),
-											Text("Hand value: ${currentPlayer.handValue()}"),
+											Text("Hand value: ${currentPlayer.handValue()} SEK"),
 											const Flexible(
 												fit: FlexFit.tight,
 												child: SizedBox(),
@@ -171,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
 												fit: FlexFit.tight,
 												child: SizedBox(),
 											),
-											Text("Cards in discard: ${currentPlayer.discardPile.items.length}"),
+											Text("Cards in hand: ${currentPlayer.hand.length}"),
 											const Flexible(
 												fit: FlexFit.tight,
 												child: SizedBox(),
@@ -183,7 +184,9 @@ class _MyHomePageState extends State<MyHomePage> {
 										child: SizedBox(),
 									),
 									Row(
-										children: currentPlayer.getHandCards(Theme.of(context)),
+										children: currentPlayer.getHandCards(Theme.of(context), (GameCard card) {
+											print(card.name);
+										}),
 									),
 								],
 							),

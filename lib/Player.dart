@@ -31,11 +31,13 @@ class Player {
 
 	final List<ItemCard> cards = <ItemCard>[];
 
-	List<Widget> getHandCards(ThemeData theme) {
+	List<Widget> getHandCards(ThemeData theme, void Function(GameCard) onTap) {
 		final List<Widget> cards = <Widget>[];
 
 		for (int i = 0; i < hand.length; i++) {
-			cards.add(hand[i].makeCard(theme));
+			cards.add(hand[i].makeCard(theme, onTap: () {
+				onTap(hand[i]);
+			}));
 		}
 
 		return cards;

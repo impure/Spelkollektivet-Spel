@@ -52,7 +52,7 @@ class GameCard {
 
 	Widget get prefix => const SizedBox();
 
-	Widget makeCard(ThemeData theme) {
+	Widget makeCard(ThemeData theme, {void Function()? onTap}) {
 		return Center(
 			child: ConstrainedBox(
 				constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
@@ -62,22 +62,25 @@ class GameCard {
 						aspectRatio: 1,
 						child: Padding(
 							padding: const EdgeInsets.all(5),
-							child: Material(
-								borderRadius: const BorderRadius.all(Radius.circular(20)),
-								color: theme.cardColor,
-								elevation: 5,
-								child: Padding(
-									padding: const EdgeInsets.all(5),
-									child: Column(
-										mainAxisAlignment: MainAxisAlignment.center,
-										children: <Widget>[
-											prefix,
-											Text(name),
-											const SizedBox(height: 5),
-											Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
-											const SizedBox(height: 5),
-											Text("$value SEK", style: const TextStyle(fontSize: 10)),
-										],
+							child: GestureDetector(
+								onTap: onTap,
+								child: Material(
+									borderRadius: const BorderRadius.all(Radius.circular(20)),
+									color: theme.cardColor,
+									elevation: 5,
+									child: Padding(
+										padding: const EdgeInsets.all(5),
+										child: Column(
+											mainAxisAlignment: MainAxisAlignment.center,
+											children: <Widget>[
+												prefix,
+												Text(name),
+												const SizedBox(height: 5),
+												Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
+												const SizedBox(height: 5),
+												Text("$value SEK", style: const TextStyle(fontSize: 10)),
+											],
+										),
 									),
 								),
 							),
