@@ -155,8 +155,30 @@ class _MyHomePageState extends State<MyHomePage> {
 							padding: const EdgeInsets.symmetric(horizontal: 20),
 							child: Column(
 								children: <Widget>[
-									Text("Hand value: 1000 SEK"),
-									Flexible(
+									Row(
+										children: <Widget>[
+											const Flexible(
+												fit: FlexFit.tight,
+												child: SizedBox(),
+											),
+											Text("Hand value: ${currentPlayer.handValue()}"),
+											const Flexible(
+												fit: FlexFit.tight,
+												child: SizedBox(),
+											),
+											Text("Cards in deck: ${currentPlayer.deck.items.length}"),
+											const Flexible(
+												fit: FlexFit.tight,
+												child: SizedBox(),
+											),
+											Text("Cards in discard: ${currentPlayer.discardPile.items.length}"),
+											const Flexible(
+												fit: FlexFit.tight,
+												child: SizedBox(),
+											),
+										],
+									),
+									const Flexible(
 										fit: FlexFit.tight,
 										child: SizedBox(),
 									),

@@ -40,4 +40,15 @@ class Player {
 
 		return cards;
 	}
+
+	int handValue() {
+		int counter = 0;
+
+		for (int i = 0; i < hand.length; i++) {
+			counter += hand[i].value;
+		}
+
+		return counter;
+
+	}
 }
