@@ -183,12 +183,17 @@ class _MyHomePageState extends State<MyHomePage> {
 										fit: FlexFit.tight,
 										child: SizedBox(),
 									),
-									Row(
-										children: currentPlayer.getHandCards(Theme.of(context), (GameCard card) {
-											setState(() {
-												card.action(currentPlayer);
-											});
-										}),
+									SingleChildScrollView(
+										scrollDirection: Axis.horizontal,
+										child: Row(
+											children: currentPlayer.getHandCards(Theme.of(context), (GameCard card) {
+												setState(() {
+													card.action(currentPlayer);
+													currentPlayer.hand.remove(card);
+													currentPlayer.discardPile.add(card);
+												});
+											}),
+										),
 									),
 								],
 							),
