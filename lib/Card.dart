@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Card {
+class GameCard {
 
-	const Card({
+	const GameCard({
 		required this.name,
 		required this.description,
 		required this.value,
@@ -23,8 +23,8 @@ class Card {
 	}
 	*/
 
-	factory Card.SGDC() {
-		return Card(
+	factory GameCard.SGDC() {
+		return GameCard(
 			name: "SGDC",
 			description: "+2 cards",
 			value: 300,
@@ -32,8 +32,8 @@ class Card {
 		);
 	}
 
-	factory Card.StandUp() {
-		return Card(
+	factory GameCard.StandUp() {
+		return GameCard(
 			name: "Stand Up",
 			description: "Discard the top card of your deck. +2 cards",
 			value: 200,
@@ -41,8 +41,8 @@ class Card {
 		);
 	}
 
-	factory Card.HouseMeeting() {
-		return Card(
+	factory GameCard.HouseMeeting() {
+		return GameCard(
 			name: "House Meeting",
 			description: "+3 cards",
 			value: 500,
@@ -117,7 +117,7 @@ enum Room {
 	Theatre
 }
 
-class ItemCard extends Card {
+class ItemCard extends GameCard {
 
 	ItemCard({
 		required super.name,

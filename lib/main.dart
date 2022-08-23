@@ -147,10 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
 							),
 						),
 					),
-					const Flexible(
+					Flexible(
 						flex: 3,
 						fit: FlexFit.tight,
-						child: SizedBox(),
+						child: GridView.count(
+							crossAxisCount: 4,
+							children: currentPlayer.getHandCards(Theme.of(context)),
+						),
 					),
 				],
 			),

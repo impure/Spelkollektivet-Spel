@@ -7,17 +7,19 @@ import 'package:tools/RandomBag.dart';
 
 Random rng = Random();
 
-RandomBag<Card> cardPool = RandomBag<Card>();
-RandomBag<Card> cardPoolDiscards = RandomBag<Card>();
+RandomBag<GameCard> cardPool = RandomBag<GameCard>();
+RandomBag<GameCard> cardPoolDiscards = RandomBag<GameCard>();
 
 RandomBag<ItemCard> itemPool = RandomBag<ItemCard>();
 RandomBag<ItemCard> itemDiscards = RandomBag<ItemCard>();
 
-Map<int, Card> cardsCanBeBought = <int, Card>{};
+Map<int, GameCard> cardsCanBeBought = <int, GameCard>{};
 Map<int, ItemCard> itemsCanBeBought = <int, ItemCard>{};
 
 int currentPlayerIndex = 0;
 List<Player> players = <Player>[];
+
+Player get currentPlayer => players[currentPlayerIndex];
 
 void startRound() {
   assert(cardsCanBeBought.isEmpty);
@@ -37,7 +39,7 @@ void startRound() {
   for (int i = 0; i < 12; i++) {
     if (cardPool.empty) {
       cardPool = cardPoolDiscards;
-      cardPoolDiscards = RandomBag<Card>();
+      cardPoolDiscards = RandomBag<GameCard>();
       // TODO: end game if ran out of cards
       if (cardPool.empty) {
         break;
@@ -57,38 +59,38 @@ void endRound() {
 }
 
 void initGameState() {
-  cardPool.add(Card.HouseMeeting());
+  cardPool.add(GameCard.HouseMeeting());
 
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
 
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
 
   // For debugging
-  cardPool.add(Card.HouseMeeting());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.SGDC());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
-  cardPool.add(Card.StandUp());
+  cardPool.add(GameCard.HouseMeeting());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
+  cardPool.add(GameCard.StandUp());
 
   itemPool.add(ItemCard.Treadmill());
   itemPool.add(ItemCard.Treadmill());
