@@ -185,7 +185,9 @@ class _MyHomePageState extends State<MyHomePage> {
 									),
 									Row(
 										children: currentPlayer.getHandCards(Theme.of(context), (GameCard card) {
-											print(card.name);
+											setState(() {
+												card.action(currentPlayer);
+											});
 										}),
 									),
 								],

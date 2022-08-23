@@ -15,10 +15,10 @@ class Player {
 		for (int i = 0; i < INITIAL_CARDS; i++) {
 			deck.add(allCards.getRandomItem(rng));
 		}
-		drawCards(rng);
+		startTurn(rng);
 	}
 
-	void drawCards(Random rng) {
+	void startTurn(Random rng) {
 		for (int i = 0; i < CARDS_TO_DRAW; i++) {
 			hand.add(deck.getRandomItem(rng));
 		}
@@ -30,6 +30,8 @@ class Player {
 	final List<GameCard> hand = <GameCard>[];
 
 	final List<ItemCard> cards = <ItemCard>[];
+
+	int money = 0;
 
 	List<Widget> getHandCards(ThemeData theme, void Function(GameCard) onTap) {
 		final List<Widget> cards = <Widget>[];

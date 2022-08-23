@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:spelkollektivet_spel/GameState.dart';
+import 'package:spelkollektivet_spel/Player.dart';
 
 class GameCard {
 
@@ -28,7 +30,13 @@ class GameCard {
 			name: "SGDC",
 			description: "+2 cards",
 			value: 300,
-			action: () {},
+			action: (Player player) {
+				for (int i = 0; i < 2; i++) {
+					if (player.deck.notEmpty) {
+						player.hand.add(player.deck.getRandomItem(rng));
+					}
+				}
+			},
 		);
 	}
 
@@ -37,7 +45,16 @@ class GameCard {
 			name: "Stand Up",
 			description: "Discard the top card of your deck. +2 cards",
 			value: 200,
-			action: () {},
+			action: (Player player) {
+				if (player.deck.notEmpty) {
+					player.discardPile.add(player.deck.getRandomItem(rng));
+				}
+				for (int i = 0; i < 2; i++) {
+					if (player.deck.notEmpty) {
+						player.hand.add(player.deck.getRandomItem(rng));
+					}
+				}
+			},
 		);
 	}
 
@@ -46,7 +63,13 @@ class GameCard {
 			name: "House Meeting",
 			description: "+3 cards",
 			value: 500,
-			action: () {},
+			action: (Player player) {
+				for (int i = 0; i < 3; i++) {
+					if (player.deck.notEmpty) {
+						player.hand.add(player.deck.getRandomItem(rng));
+					}
+				}
+			},
 		);
 	}
 
@@ -114,7 +137,7 @@ class GameCard {
 	 */
 
 	final String name, description;
-	final Function() action;
+	final Function(Player) action;
 	final int value;
 }
 
@@ -143,7 +166,9 @@ class ItemCard extends GameCard {
 			name: "Hammock",
 			description: "+50 SEK",
 			value: 3500,
-			action: () {},
+			action: (Player player) {
+				player.money += 50;
+			},
 			room: Room.PATIO,
 		);
 	}
@@ -153,7 +178,11 @@ class ItemCard extends GameCard {
 			name: "Treadmill",
 			description: "+1 Additional Card",
 			value: 4000,
-			action: () {},
+			action: (Player player) {
+				if (player.deck.notEmpty) {
+					player.hand.add(player.deck.getRandomItem(rng));
+				}
+			},
 			room: Room.GYM,
 		);
 	}
