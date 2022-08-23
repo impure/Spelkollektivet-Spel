@@ -15,6 +15,13 @@ class Player {
 		for (int i = 0; i < INITIAL_CARDS; i++) {
 			deck.add(allCards.getRandomItem(rng));
 		}
+		drawCards(rng);
+	}
+
+	void drawCards(Random rng) {
+		for (int i = 0; i < CARDS_TO_DRAW; i++) {
+			hand.add(deck.getRandomItem(rng));
+		}
 	}
 
 	final RandomBag<GameCard> deck = RandomBag<GameCard>();
