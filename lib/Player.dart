@@ -55,7 +55,7 @@ class Player {
 	}
 
 	int handValue() {
-		int counter = 0;
+		int counter = bonusMoney;
 
 		for (int i = 0; i < hand.length; i++) {
 			counter += hand[i].value;
@@ -63,5 +63,14 @@ class Player {
 
 		return counter;
 
+	}
+
+	void endActionPhase() {
+		currentPhase = Phase.BUY;
+		bonusMoney = handValue();
+		for (int i = 0; i < hand.length; i++) {
+			discardPile.add(hand[i]);
+		}
+		hand.clear();
 	}
 }

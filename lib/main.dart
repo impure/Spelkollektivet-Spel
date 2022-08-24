@@ -164,7 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
 													child: GestureDetector(
 														onTap: () {
 															setState(() {
-																currentPlayer.currentPhase = Phase.BUY;
+																currentPlayer.endActionPhase();
 															});
 														},
 														child: const Padding(
