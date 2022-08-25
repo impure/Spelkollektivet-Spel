@@ -159,6 +159,7 @@ void initGameState() {
   itemPool.add(ItemCard.WaffleMaker());
 
   players.add(Player(cardPool, rng));
+  players.add(Player(cardPool, rng));
 
   dealCardsThatCanBeBought();
 }

@@ -74,7 +74,7 @@ class Player {
 		final List<Widget> cards = <Widget>[];
 
 		for (int i = 0; i < hand.length; i++) {
-			cards.add(hand[i].makeCard(theme, onTap: () {
+			cards.add(hand[i].makeCard(theme, false, onTap: () {
 				onTap(hand[i]);
 			}));
 		}

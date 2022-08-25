@@ -35,8 +35,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 	Widget makeCard(Map<int, GameCard> cards, int index) {
+
 		final GameCard? card = cards[index];
-		return card?.makeCard(Theme.of(context), onTap: () {
+
+		if (card == null) {
+			return const SizedBox();
+		}
+
+		final bool blocked = currentPlayer.bonusMoney < card.value || currentPlayer.buysAvailable == 0 || (card is ItemCard && currentPlayer.itemCards.containsKey(card.name));
+
+		return card.makeCard(Theme.of(context), blocked, onTap: () {
 			if (card is ItemCard && currentPlayer.itemCards.containsKey(card.name)) {
 				return;
 			}
@@ -64,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
 				}
 				setState(() {});
 			}
-		}) ?? const SizedBox();
+		});
 	}
 
 	Widget makeCardDisplay() {

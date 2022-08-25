@@ -152,7 +152,7 @@ class GameCard {
 
 	final bool trashOnUse;
 
-	Widget makeCard(ThemeData theme, {void Function()? onTap}) {
+	Widget makeCard(ThemeData theme, bool blocked, {void Function()? onTap}) {
 		return Center(
 			child: ConstrainedBox(
 				constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
@@ -166,7 +166,7 @@ class GameCard {
 								onTap: onTap,
 								child: Material(
 									borderRadius: const BorderRadius.all(Radius.circular(20)),
-									color: theme.cardColor,
+									color: blocked ? theme.cardColor.withOpacity(0.5) : theme.cardColor,
 									elevation: 5,
 									child: Padding(
 										padding: const EdgeInsets.all(5),
