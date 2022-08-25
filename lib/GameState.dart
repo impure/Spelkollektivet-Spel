@@ -27,8 +27,23 @@ void incrementTurn() {
   if (currentPlayerIndex == startingPlayerIndex) {
     startingPlayerIndex = (startingPlayerIndex + 1) % players.length;
     currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
-    cardPool.add(GameCard.Tacos());
     clearCardsCanBeBought();
+
+    if (cardPool.items.length + cardPoolDiscards.items.length < 16) {
+      cardPool.add(GameCard.Tacos());
+      cardPool.add(GameCard.Tacos());
+      cardPool.add(GameCard.SGDC());
+      cardPool.add(GameCard.SGDC());
+      cardPool.add(GameCard.StandUp());
+      cardPool.add(GameCard.StandUp());
+      cardPool.add(GameCard.SecondsTime());
+      cardPool.add(GameCard.SecondsTime());
+      cardPool.add(GameCard.SecondsTime());
+      cardPool.add(GameCard.Karaoke());
+      cardPool.add(GameCard.FoodTruck());
+      cardPool.add(GameCard.FoodTruck());
+    }
+
     dealCardsThatCanBeBought();
   }
   currentPlayer.startTurn();
@@ -160,6 +175,7 @@ void initGameState() {
 
   players.add(Player(cardPool, rng));
   players.add(Player(cardPool, rng));
+  players[0].startTurn();
 
   dealCardsThatCanBeBought();
 }

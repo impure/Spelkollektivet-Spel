@@ -21,7 +21,6 @@ class Player {
 		for (int i = 0; i < INITIAL_CARDS; i++) {
 			deck.add(allCards.getRandomItem(rng));
 		}
-		startTurn();
 	}
 
 	void startTurn() {
