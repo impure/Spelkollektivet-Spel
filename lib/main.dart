@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
 			return const SizedBox();
 		}
 
-		final bool blocked = currentPlayer.bonusMoney < card.value || currentPlayer.buysAvailable == 0 || (card is ItemCard && currentPlayer.itemCards.containsKey(card.name));
+		final bool blocked = currentPlayer.bonusMoney + currentPlayer.handValue() < card.value || currentPlayer.buysAvailable == 0 || (card is ItemCard && currentPlayer.itemCards.containsKey(card.name));
 
 		return card.makeCard(Theme.of(context), blocked, onTap: () {
 			if (card is ItemCard && currentPlayer.itemCards.containsKey(card.name)) {

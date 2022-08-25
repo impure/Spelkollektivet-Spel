@@ -165,6 +165,7 @@ class GameCard {
 							child: GestureDetector(
 								onTap: onTap,
 								child: Material(
+									key: Key("$this $blocked"),
 									borderRadius: const BorderRadius.all(Radius.circular(20)),
 									color: blocked ? theme.cardColor.withOpacity(0.5) : theme.cardColor,
 									elevation: 5,
