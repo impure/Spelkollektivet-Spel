@@ -37,7 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
 	Widget makeCard(Map<int, GameCard> cards, int index) {
 		final GameCard? card = cards[index];
 		return card?.makeCard(Theme.of(context), onTap: () {
-			if (currentPlayer.bonusMoney >= card.value) {
+			if (currentPlayer.bonusMoney >= card.value && currentPlayer.buysAvailable > 0) {
+				currentPlayer.buysAvailable--;
 				currentPlayer.bonusMoney -= card.value;
 				cards.remove(index);
 				currentPlayer.discardPile.add(card);
@@ -217,6 +218,11 @@ class _MyHomePageState extends State<MyHomePage> {
 												child: SizedBox(),
 											),
 											Text("Cards in hand: ${currentPlayer.hand.length}"),
+											const Flexible(
+												fit: FlexFit.tight,
+												child: SizedBox(),
+											),
+											Text("Buys available: ${currentPlayer.buysAvailable}"),
 											const Flexible(
 												fit: FlexFit.tight,
 												child: SizedBox(),

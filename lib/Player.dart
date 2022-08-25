@@ -29,6 +29,10 @@ class Player {
 		}
 		bonusMoney = 0;
 		currentPhase = Phase.ACTION;
+		buysAvailable = 3;
+		for (int i = 0; i < itemCards.length; i++) {
+			itemCards[i].action(this);
+		}
 	}
 
 	final RandomBag<GameCard> deck = RandomBag<GameCard>();
@@ -36,9 +40,10 @@ class Player {
 
 	final List<GameCard> hand = <GameCard>[];
 
-	final List<ItemCard> cards = <ItemCard>[];
+	final List<ItemCard> itemCards = <ItemCard>[];
 
 	int bonusMoney = 0;
+	int buysAvailable = 3;
 
 	Phase currentPhase = Phase.ACTION;
 
@@ -62,7 +67,6 @@ class Player {
 		}
 
 		return counter;
-
 	}
 
 	void endActionPhase() {
