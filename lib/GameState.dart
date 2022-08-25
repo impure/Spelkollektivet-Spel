@@ -25,13 +25,13 @@ void incrementTurn() {
   currentPlayerIndex++;
   if (currentPlayerIndex >= players.length) {
     currentPlayerIndex = 0;
-    endRound();
-    startRound();
+    clearCardsCanBeBought();
+    dealCardsThatCanBeBought();
   }
-  currentPlayer.startTurn(rng);
+  currentPlayer.startTurn();
 }
 
-void startRound() {
+void dealCardsThatCanBeBought() {
   assert(cardsCanBeBought.isEmpty);
   assert(itemsCanBeBought.isEmpty);
 
@@ -59,7 +59,7 @@ void startRound() {
   }
 }
 
-void endRound() {
+void clearCardsCanBeBought() {
   cardsCanBeBought.values.forEach(cardPoolDiscards.add);
   cardsCanBeBought.clear();
 
@@ -89,11 +89,30 @@ void initGameState() {
   cardPool.add(GameCard.SecondsTime());
   cardPool.add(GameCard.SecondsTime());
   cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
 
   cardPool.add(GameCard.Tacos());
   cardPool.add(GameCard.Tacos());
   cardPool.add(GameCard.Tacos());
   cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
+
+  cardPool.add(GameCard.Karaoke());
+  cardPool.add(GameCard.Karaoke());
+  cardPool.add(GameCard.Karaoke());
+  cardPool.add(GameCard.Karaoke());
+
+  cardPool.add(GameCard.FoodTruck());
+  cardPool.add(GameCard.FoodTruck());
+  cardPool.add(GameCard.FoodTruck());
+  cardPool.add(GameCard.FoodTruck());
+  cardPool.add(GameCard.FoodTruck());
+  cardPool.add(GameCard.FoodTruck());
+
 
   // For debugging
   cardPool.add(GameCard.HouseMeeting());
@@ -116,5 +135,5 @@ void initGameState() {
 
   players.add(Player(cardPool, rng));
 
-  startRound();
+  dealCardsThatCanBeBought();
 }

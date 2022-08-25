@@ -30,7 +30,7 @@ class GameCard {
 		return GameCard(
 			name: "SGDC",
 			description: "+2 cards",
-			value: 300,
+			value: 500,
 			action: (Player player) {
 				for (int i = 0; i < 2; i++) {
 					if (player.deck.notEmpty) {
@@ -63,7 +63,7 @@ class GameCard {
 		return GameCard(
 			name: "House Meeting",
 			description: "+3 cards",
-			value: 500,
+			value: 1000,
 			action: (Player player) {
 				for (int i = 0; i < 3; i++) {
 					if (player.deck.notEmpty) {
@@ -78,7 +78,7 @@ class GameCard {
 		return GameCard(
 			name: "Seconds Time",
 			description: "+1 Card. Gain That card's value as a bonus.",
-			value: 500,
+			value: 700,
 			action: (Player player) {
 				if (player.deck.notEmpty) {
 					final GameCard card = player.deck.getRandomItem(rng);
@@ -98,6 +98,31 @@ class GameCard {
 				player.bonusMoney += 500;
 			},
 			trashOnUse: true,
+		);
+	}
+
+	factory GameCard.Karaoke() {
+		return GameCard(
+			name: "Karaoke",
+			description: "Redeal both the item cards and action cards.",
+			value: 800,
+			action: (Player player) {
+				clearCardsCanBeBought();
+				dealCardsThatCanBeBought();
+			},
+		);
+	}
+
+	factory GameCard.FoodTruck() {
+		return GameCard(
+			name: "Food Truck",
+			description: "Discard your hand. Draw new cards equal to how many cards you had before +4.",
+			value: 300,
+			action: (Player player) {
+				final int cards = player.hand.length;
+				player.discardHand();
+				player.drawCards(cards + 4);
+			},
 		);
 	}
 
