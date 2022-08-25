@@ -34,6 +34,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+	Widget makeCard(Map<int, GameCard> cards, int index) {
+		final GameCard? card = cards[index];
+		return card?.makeCard(Theme.of(context), onTap: () {
+			if (currentPlayer.bonusMoney >= card.value) {
+				currentPlayer.bonusMoney -= card.value;
+				cards.remove(index);
+				currentPlayer.discardPile.add(card);
+				setState(() {});
+			}
+		}) ?? const SizedBox();
+	}
+
 	Widget makeCardDisplay() {
 		return Column(
 			children: <Widget>[
@@ -43,19 +55,19 @@ class _MyHomePageState extends State<MyHomePage> {
 						children: <Widget>[
 							Flexible(
 								fit: FlexFit.tight,
-								child: itemsCanBeBought[0]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(itemsCanBeBought, 0),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: itemsCanBeBought[1]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(itemsCanBeBought, 1),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: itemsCanBeBought[2]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(itemsCanBeBought, 2),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: itemsCanBeBought[3]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(itemsCanBeBought, 3),
 							),
 						],
 					),
@@ -67,42 +79,19 @@ class _MyHomePageState extends State<MyHomePage> {
 						children: <Widget>[
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[0]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 0),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[1]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 1),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[2]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 2),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[3]?.makeCard(Theme.of(context)) ?? const SizedBox(),
-							),
-						],
-					),
-				),
-				Flexible(
-					fit: FlexFit.tight,
-					child: Row(
-						children: <Widget>[
-							Flexible(
-								fit: FlexFit.tight,
-								child: cardsCanBeBought[4]?.makeCard(Theme.of(context)) ?? const SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: cardsCanBeBought[5]?.makeCard(Theme.of(context)) ?? const SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: cardsCanBeBought[6]?.makeCard(Theme.of(context)) ?? const SizedBox(),
-							),
-							Flexible(
-								fit: FlexFit.tight,
-								child: cardsCanBeBought[7]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 3),
 							),
 						],
 					),
@@ -113,19 +102,42 @@ class _MyHomePageState extends State<MyHomePage> {
 						children: <Widget>[
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[8]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 4),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[9]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 5),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[10]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 6),
 							),
 							Flexible(
 								fit: FlexFit.tight,
-								child: cardsCanBeBought[11]?.makeCard(Theme.of(context)) ?? const SizedBox(),
+								child: makeCard(cardsCanBeBought, 7),
+							),
+						],
+					),
+				),
+				Flexible(
+					fit: FlexFit.tight,
+					child: Row(
+						children: <Widget>[
+							Flexible(
+								fit: FlexFit.tight,
+								child: makeCard(cardsCanBeBought, 8),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: makeCard(cardsCanBeBought, 9),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: makeCard(cardsCanBeBought, 10),
+							),
+							Flexible(
+								fit: FlexFit.tight,
+								child: makeCard(cardsCanBeBought, 11),
 							),
 						],
 					),
