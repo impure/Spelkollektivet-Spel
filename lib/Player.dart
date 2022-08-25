@@ -25,7 +25,9 @@ class Player {
 
 	void startTurn(Random rng) {
 		for (int i = 0; i < CARDS_TO_DRAW; i++) {
-			hand.add(deck.getRandomItem(rng));
+			if (deck.notEmpty) {
+				hand.add(deck.getRandomItem(rng));
+			}
 		}
 		bonusMoney = 0;
 		currentPhase = Phase.ACTION;

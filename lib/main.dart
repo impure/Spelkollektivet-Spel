@@ -267,10 +267,31 @@ class _MyHomePageState extends State<MyHomePage> {
 							),
 						),
 					),
-					const Flexible(
+					Flexible(
 						flex: 1,
 						fit: FlexFit.tight,
-						child: SizedBox(),
+						child: Center(
+							child: Material(
+								borderRadius: const BorderRadius.all(Radius.circular(20)),
+								color: Theme.of(context).cardColor,
+								elevation: 5,
+								child: GestureDetector(
+									behavior: HitTestBehavior.translucent,
+									onTap: () {
+										setState(() {
+											currentPlayer.endActionPhase();
+											currentPlayer.deck.items.addAll(currentPlayer.discardPile.items);
+											currentPlayer.discardPile.clear();
+											incrementTurn();
+										});
+									},
+									child: Padding(
+										padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+										child: Text("Reshuffle (end turn and gain ${currentPlayer.discardPile.items.length} cards)"),
+									),
+								),
+							),
+						),
 					),
 				],
 			),
