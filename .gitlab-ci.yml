@@ -1,6 +1,7 @@
 image: cirrusci/flutter:latest
 
 before_script:
+  - flutter channel stable
   - flutter upgrade
   - flutter config --enable-web
   - flutter pub get
