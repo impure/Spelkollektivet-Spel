@@ -20,9 +20,92 @@ class MyApp extends StatelessWidget {
 				primarySwatch: Colors.blue,
 			),
 			darkTheme: ThemeData.dark(),
-			home: const MyHomePage(),
+			home: const PlayerSelectionPage(),
 		);
 	}
+}
+
+class PlayerSelectionPage extends StatefulWidget {
+  const PlayerSelectionPage({super.key});
+
+  @override
+  State<PlayerSelectionPage> createState() => _PlayerSelectionPageState();
+}
+
+class _PlayerSelectionPageState extends State<PlayerSelectionPage> {
+  @override
+  Widget build(BuildContext context) {
+		return Scaffold(
+			body: Column(
+				children: <Widget>[
+					const Flexible(
+						fit: FlexFit.tight,
+						child: SizedBox(),
+					),
+					Text("Select how many players you want.", style: Theme.of(context).textTheme.headline5),
+					const SizedBox(
+						height: 50,
+					),
+					Row(
+						mainAxisAlignment: MainAxisAlignment.center,
+						children: <Widget>[
+							ElevatedButton(
+								onPressed: () {
+									players.add(Player(cardPool, rng));
+									players.add(Player(cardPool, rng));
+									players[0].startTurn();
+									Navigator.pushReplacement<void, void>(
+										context,
+										MaterialPageRoute<void>(
+											builder: (BuildContext context) => const MyHomePage(),
+										),
+									);
+								},
+								child: const Text("2", style: TextStyle(fontSize: 20)),
+							),
+							const SizedBox(width: 15),
+							ElevatedButton(
+								onPressed: () {
+									players.add(Player(cardPool, rng));
+									players.add(Player(cardPool, rng));
+									players.add(Player(cardPool, rng));
+									players[0].startTurn();
+									Navigator.pushReplacement<void, void>(
+										context,
+										MaterialPageRoute<void>(
+											builder: (BuildContext context) => const MyHomePage(),
+										),
+									);
+								},
+								child: const Text("3", style: TextStyle(fontSize: 20)),
+							),
+							const SizedBox(width: 15),
+							ElevatedButton(
+								onPressed: () {
+									players.add(Player(cardPool, rng));
+									players.add(Player(cardPool, rng));
+									players.add(Player(cardPool, rng));
+									players.add(Player(cardPool, rng));
+									players[0].startTurn();
+									Navigator.pushReplacement<void, void>(
+										context,
+										MaterialPageRoute<void>(
+											builder: (BuildContext context) => const MyHomePage(),
+										),
+									);
+								},
+								child: const Text("4", style: TextStyle(fontSize: 20)),
+							),
+						],
+					),
+					const Flexible(
+						fit: FlexFit.tight,
+						child: SizedBox(),
+					),
+				],
+			),
+		);
+  }
 }
 
 class MyHomePage extends StatefulWidget {
