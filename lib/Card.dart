@@ -117,12 +117,12 @@ class GameCard {
 	factory GameCard.FoodTruck() {
 		return GameCard(
 			name: "Food Truck",
-			description: "Discard your hand. Draw new cards equal to how many cards you had before +2.",
+			description: "Discard your hand. Draw new cards equal to how many cards you had before.",
 			value: 550,
 			action: (Player player) {
 				final int cards = player.hand.length;
 				player.discardHand();
-				player.drawCards(cards + 2);
+				player.drawCards(cards);
 			},
 		);
 	}
