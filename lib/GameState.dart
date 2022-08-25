@@ -21,6 +21,16 @@ List<Player> players = <Player>[];
 
 Player get currentPlayer => players[currentPlayerIndex];
 
+void incrementTurn() {
+  currentPlayerIndex++;
+  if (currentPlayerIndex >= players.length) {
+    currentPlayerIndex = 0;
+    endRound();
+    startRound();
+  }
+  currentPlayer.startTurn(rng);
+}
+
 void startRound() {
   assert(cardsCanBeBought.isEmpty);
   assert(itemsCanBeBought.isEmpty);
@@ -50,7 +60,6 @@ void startRound() {
 }
 
 void endRound() {
-
   cardsCanBeBought.values.forEach(cardPoolDiscards.add);
   cardsCanBeBought.clear();
 

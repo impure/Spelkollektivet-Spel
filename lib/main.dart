@@ -235,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
 									),
 									SingleChildScrollView(
 										scrollDirection: Axis.horizontal,
-										child: Row(
+										child: currentPlayer.currentPhase == Phase.ACTION ? Row(
 											children: currentPlayer.getHandCards(Theme.of(context), (GameCard card) {
 												setState(() {
 													card.action(currentPlayer);
@@ -243,6 +243,24 @@ class _MyHomePageState extends State<MyHomePage> {
 													currentPlayer.discardPile.add(card);
 												});
 											}),
+										) :	Center(
+											child: Material(
+												borderRadius: const BorderRadius.all(Radius.circular(20)),
+												color: Theme.of(context).cardColor,
+												elevation: 5,
+												child: GestureDetector(
+													behavior: HitTestBehavior.translucent,
+													onTap: () {
+														setState(() {
+															incrementTurn();
+														});
+													},
+													child: const Padding(
+														padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+														child: Text("Tap to end turn"),
+													),
+												),
+											),
 										),
 									),
 								],

@@ -35,6 +35,18 @@ class Player {
 		}
 	}
 
+	void endActionPhase() {
+		currentPhase = Phase.BUY;
+		bonusMoney = handValue();
+		for (int i = 0; i < hand.length; i++) {
+			discardPile.add(hand[i]);
+		}
+		hand.clear();
+	}
+
+	void endTurn() {
+	}
+
 	final RandomBag<GameCard> deck = RandomBag<GameCard>();
 	final RandomBag<GameCard> discardPile = RandomBag<GameCard>();
 
@@ -67,14 +79,5 @@ class Player {
 		}
 
 		return counter;
-	}
-
-	void endActionPhase() {
-		currentPhase = Phase.BUY;
-		bonusMoney = handValue();
-		for (int i = 0; i < hand.length; i++) {
-			discardPile.add(hand[i]);
-		}
-		hand.clear();
 	}
 }
