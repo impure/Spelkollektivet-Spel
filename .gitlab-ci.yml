@@ -5,6 +5,7 @@ before_script:
   - flutter config --enable-web
   - flutter pub get
 pages:
+  stage: deploy
   script:
     - flutter build web
     - cp -r build/web public
