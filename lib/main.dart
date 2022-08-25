@@ -154,9 +154,11 @@ class _MyHomePageState extends State<MyHomePage> {
 		return Scaffold(
 			body: Column(
 				children: <Widget>[
-					const Flexible(
+					Flexible(
 						fit: FlexFit.tight,
-						child: SizedBox(),
+						child: Center(
+							child: Text("Player ${currentPlayerIndex + 1}'s Turn", style: Theme.of(context).textTheme.headline3),
+						),
 					),
 					Flexible(
 						fit: FlexFit.tight,
