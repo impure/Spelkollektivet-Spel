@@ -197,13 +197,13 @@ class GameCard {
 }
 
 enum Room {
-	HALL,
+	//HALL,
 	ROUND_ROOM,
 	BASEMENT,
 	KITCHEN,
 	GYM,
 	PATIO,
-	Theatre
+	//Theatre
 }
 
 class ItemCard extends GameCard {
@@ -215,7 +215,43 @@ class ItemCard extends GameCard {
 		required super.action,
 		required this.room,
 	});
-	
+
+	factory ItemCard.GamingComputer() {
+		return ItemCard(
+			name: "Gaming Computer",
+			description: "+1 Buy",
+			value: 3500,
+			action: (Player player) {
+				player.buysAvailable++;
+			},
+			room: Room.ROUND_ROOM,
+		);
+	}
+
+	factory ItemCard.WaffleMaker() {
+		return ItemCard(
+			name: "Waffle Maker",
+			description: "+1 Buy",
+			value: 3500,
+			action: (Player player) {
+				player.buysAvailable++;
+			},
+			room: Room.KITCHEN,
+		);
+	}
+
+	factory ItemCard.StandingDesk() {
+		return ItemCard(
+			name: "Standing Desk",
+			description: "+200 SEK",
+			value: 3500,
+			action: (Player player) {
+				player.bonusMoney += 200;
+			},
+			room: Room.BASEMENT,
+		);
+	}
+
 	factory ItemCard.Hammock() {
 		return ItemCard(
 			name: "Hammock",

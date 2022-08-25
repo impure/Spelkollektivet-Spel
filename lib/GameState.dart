@@ -131,6 +131,19 @@ void initGameState() {
   itemPool.add(ItemCard.Hammock());
   itemPool.add(ItemCard.Hammock());
   itemPool.add(ItemCard.Hammock());
+  itemPool.add(ItemCard.GamingComputer());
+  itemPool.add(ItemCard.GamingComputer());
+  itemPool.add(ItemCard.GamingComputer());
+  itemPool.add(ItemCard.GamingComputer());
+  itemPool.add(ItemCard.StandingDesk());
+  itemPool.add(ItemCard.StandingDesk());
+  itemPool.add(ItemCard.StandingDesk());
+  itemPool.add(ItemCard.StandingDesk());
+  itemPool.add(ItemCard.StandingDesk());
+  itemPool.add(ItemCard.WaffleMaker());
+  itemPool.add(ItemCard.WaffleMaker());
+  itemPool.add(ItemCard.WaffleMaker());
+  itemPool.add(ItemCard.WaffleMaker());
 
   players.add(Player(cardPool, rng));
 
