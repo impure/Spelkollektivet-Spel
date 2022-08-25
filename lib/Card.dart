@@ -152,7 +152,10 @@ class GameCard {
 											mainAxisAlignment: MainAxisAlignment.center,
 											children: <Widget>[
 												prefix,
-												Text(name),
+												SingleChildScrollView(
+													scrollDirection: Axis.horizontal,
+													child: Text(name, maxLines: 1, textAlign: TextAlign.center, style: const TextStyle(overflow: TextOverflow.clip)),
+												),
 												const SizedBox(height: 5),
 												Text(description, style: const TextStyle(fontSize: 9), textAlign: TextAlign.center),
 												const SizedBox(height: 5),
@@ -216,39 +219,15 @@ class ItemCard extends GameCard {
 		required this.room,
 	});
 
-	factory ItemCard.GamingComputer() {
-		return ItemCard(
-			name: "Gaming Computer",
-			description: "+1 Buy",
-			value: 3500,
-			action: (Player player) {
-				player.buysAvailable++;
-			},
-			room: Room.ROUND_ROOM,
-		);
-	}
-
 	factory ItemCard.WaffleMaker() {
 		return ItemCard(
 			name: "Waffle Maker",
 			description: "+1 Buy",
-			value: 3500,
+			value: 1500,
 			action: (Player player) {
 				player.buysAvailable++;
 			},
 			room: Room.KITCHEN,
-		);
-	}
-
-	factory ItemCard.StandingDesk() {
-		return ItemCard(
-			name: "Standing Desk",
-			description: "+200 SEK",
-			value: 3500,
-			action: (Player player) {
-				player.bonusMoney += 200;
-			},
-			room: Room.BASEMENT,
 		);
 	}
 
@@ -264,17 +243,41 @@ class ItemCard extends GameCard {
 		);
 	}
 
+	factory ItemCard.StandingDesk() {
+		return ItemCard(
+			name: "Standing Desk",
+			description: "+200 SEK",
+			value: 4000,
+			action: (Player player) {
+				player.bonusMoney += 200;
+			},
+			room: Room.BASEMENT,
+		);
+	}
+
 	factory ItemCard.Treadmill() {
 		return ItemCard(
 			name: "Treadmill",
 			description: "+1 Additional Card",
-			value: 4000,
+			value: 8000,
 			action: (Player player) {
 				if (player.deck.notEmpty) {
 					player.hand.add(player.deck.getRandomItem(rng));
 				}
 			},
 			room: Room.GYM,
+		);
+	}
+
+	factory ItemCard.GamingComputer() {
+		return ItemCard(
+			name: "Gaming Computer",
+			description: "+1 Buy",
+			value: 14000,
+			action: (Player player) {
+				player.buysAvailable++;
+			},
+			room: Room.ROUND_ROOM,
 		);
 	}
 
