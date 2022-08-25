@@ -127,20 +127,9 @@ class GameCard {
 		);
 	}
 
-	factory GameCard.TVShow() {
-		return GameCard(
-			name: "TV Show",
-			description: "+1 Buy",
-			value: 450,
-			action: (Player player) {
-				player.buysAvailable++;
-			},
-		);
-	}
-
 	factory GameCard.Movie() {
 		return GameCard(
-			name: "Movie",
+			name: "Movie/TV",
 			description: "+2 Buys",
 			value: 900,
 			action: (Player player) {
