@@ -29,8 +29,8 @@ class Player {
 		bonusMoney = 0;
 		currentPhase = Phase.ACTION;
 		buysAvailable = 3;
-		for (int i = 0; i < itemCards.length; i++) {
-			itemCards[i].action(this);
+		for (final ItemCard card in itemCards.values) {
+			card.action(this);
 		}
 	}
 
@@ -63,7 +63,7 @@ class Player {
 
 	final List<GameCard> hand = <GameCard>[];
 
-	final List<ItemCard> itemCards = <ItemCard>[];
+	final Map<String, ItemCard> itemCards = <String, ItemCard>{};
 
 	int bonusMoney = 0;
 	int buysAvailable = 3;

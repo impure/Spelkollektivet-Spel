@@ -113,7 +113,6 @@ void initGameState() {
   cardPool.add(GameCard.FoodTruck());
   cardPool.add(GameCard.FoodTruck());
 
-
   // For debugging
   cardPool.add(GameCard.HouseMeeting());
   cardPool.add(GameCard.SGDC());
