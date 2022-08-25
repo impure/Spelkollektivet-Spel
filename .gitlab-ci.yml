@@ -6,7 +6,7 @@ before_script:
   - flutter pub get
 pages:
   stage: deploy
-  script
+  script:
     - flutter clean
     - flutter build web --base-href='/spelkollektivet_spel/'
     - cp -r build/web public
