@@ -2,9 +2,6 @@
 image: cirrusci/flutter:latest
 # Functions that should be executed before the build script is run
 before_script:
-  - git fetch --all
-  - flutter channel stable
-  - flutter upgrade
   - flutter config --enable-web
   - flutter pub get
 pages:
