@@ -37,12 +37,30 @@ class _MyHomePageState extends State<MyHomePage> {
 	Widget makeCard(Map<int, GameCard> cards, int index) {
 		final GameCard? card = cards[index];
 		return card?.makeCard(Theme.of(context), onTap: () {
+			if (card is ItemCard && currentPlayer.itemCards.containsKey(card.name)) {
+				return;
+			}
 			if (currentPlayer.bonusMoney >= card.value && currentPlayer.buysAvailable > 0) {
 				currentPlayer.buysAvailable--;
 				currentPlayer.bonusMoney -= card.value;
 				cards.remove(index);
-				if (!card.trashOnUse) {
-					currentPlayer.discardPile.add(card);
+				if (card is ItemCard) {
+					currentPlayer.itemCards[card.name] = card;
+					if (currentPlayer.itemCards.length == 5) {
+						showDialog(
+							context: context,
+							builder: (BuildContext context) {
+								return const AlertDialog(
+									title: Text("Congratulations You Win"),
+									content: Text("Refresh the page to play again."),
+								);
+							},
+						);
+					}
+				} else {
+					if (!card.trashOnUse) {
+						currentPlayer.discardPile.add(card);
+					}
 				}
 				setState(() {});
 			}
