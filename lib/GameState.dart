@@ -16,15 +16,17 @@ RandomBag<ItemCard> itemDiscards = RandomBag<ItemCard>();
 Map<int, GameCard> cardsCanBeBought = <int, GameCard>{};
 Map<int, ItemCard> itemsCanBeBought = <int, ItemCard>{};
 
+int startingPlayerIndex = 0;
 int currentPlayerIndex = 0;
 List<Player> players = <Player>[];
 
 Player get currentPlayer => players[currentPlayerIndex];
 
 void incrementTurn() {
-  currentPlayerIndex++;
-  if (currentPlayerIndex >= players.length) {
-    currentPlayerIndex = 0;
+  currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+  if (currentPlayerIndex == startingPlayerIndex) {
+    startingPlayerIndex = (startingPlayerIndex + 1) % players.length;
+    currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
     clearCardsCanBeBought();
     dealCardsThatCanBeBought();
   }
