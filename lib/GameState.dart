@@ -113,6 +113,19 @@ void initGameState() {
   cardPool.add(GameCard.FoodTruck());
   cardPool.add(GameCard.FoodTruck());
 
+  cardPool.add(GameCard.TVShow());
+  cardPool.add(GameCard.TVShow());
+  cardPool.add(GameCard.TVShow());
+  cardPool.add(GameCard.TVShow());
+  cardPool.add(GameCard.TVShow());
+  cardPool.add(GameCard.TVShow());
+  cardPool.add(GameCard.TVShow());
+
+  cardPool.add(GameCard.Movie());
+  cardPool.add(GameCard.Movie());
+  cardPool.add(GameCard.Movie());
+  cardPool.add(GameCard.Movie());
+
   // For debugging
   cardPool.add(GameCard.HouseMeeting());
   cardPool.add(GameCard.SGDC());

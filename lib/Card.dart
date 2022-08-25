@@ -126,6 +126,28 @@ class GameCard {
 		);
 	}
 
+	factory GameCard.TVShow() {
+		return GameCard(
+			name: "TV Show",
+			description: "+1 Buy",
+			value: 450,
+			action: (Player player) {
+				player.buysAvailable++;
+			},
+		);
+	}
+
+	factory GameCard.Movie() {
+		return GameCard(
+			name: "Movie",
+			description: "+2 Buys",
+			value: 900,
+			action: (Player player) {
+				player.buysAvailable += 2;
+			},
+		);
+	}
+
 	Widget get prefix => const SizedBox();
 
 	final bool trashOnUse;
