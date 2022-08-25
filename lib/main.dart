@@ -300,7 +300,7 @@ class _MyHomePageState extends State<MyHomePage> {
 					Flexible(
 						flex: 1,
 						fit: FlexFit.tight,
-						child: Center(
+						child: currentPlayer.currentPhase == Phase.ACTION ? Center(
 							child: Material(
 								borderRadius: const BorderRadius.all(Radius.circular(20)),
 								color: Theme.of(context).cardColor,
@@ -321,7 +321,7 @@ class _MyHomePageState extends State<MyHomePage> {
 									),
 								),
 							),
-						),
+						) : const SizedBox(),
 					),
 				],
 			),
