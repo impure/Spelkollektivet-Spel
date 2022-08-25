@@ -41,7 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
 				currentPlayer.buysAvailable--;
 				currentPlayer.bonusMoney -= card.value;
 				cards.remove(index);
-				currentPlayer.discardPile.add(card);
+				if (!card.trashOnUse) {
+					currentPlayer.discardPile.add(card);
+				}
 				setState(() {});
 			}
 		}) ?? const SizedBox();

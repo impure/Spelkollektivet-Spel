@@ -12,6 +12,7 @@ class GameCard {
 		required this.description,
 		required this.value,
 		required this.action,
+		this.trashOnUse = false,
 	});
 
 	/*
@@ -73,7 +74,36 @@ class GameCard {
 		);
 	}
 
+	factory GameCard.SecondsTime() {
+		return GameCard(
+			name: "Seconds Time",
+			description: "+1 Card. Gain That card's value as a bonus.",
+			value: 500,
+			action: (Player player) {
+				if (player.deck.notEmpty) {
+					final GameCard card = player.deck.getRandomItem(rng);
+					player.bonusMoney += card.value;
+					player.hand.add(card);
+				}
+			},
+		);
+	}
+
+	factory GameCard.Tacos() {
+		return GameCard(
+			name: "Tacos",
+			description: "Trash this card. +500 SEK.",
+			value: 500,
+			action: (Player player) {
+				player.bonusMoney += 500;
+			},
+			trashOnUse: true,
+		);
+	}
+
 	Widget get prefix => const SizedBox();
+
+	final bool trashOnUse;
 
 	Widget makeCard(ThemeData theme, {void Function()? onTap}) {
 		return Center(
@@ -164,10 +194,10 @@ class ItemCard extends GameCard {
 	factory ItemCard.Hammock() {
 		return ItemCard(
 			name: "Hammock",
-			description: "+50 SEK",
+			description: "+200 SEK",
 			value: 3500,
 			action: (Player player) {
-				player.bonusMoney += 50;
+				player.bonusMoney += 200;
 			},
 			room: Room.PATIO,
 		);

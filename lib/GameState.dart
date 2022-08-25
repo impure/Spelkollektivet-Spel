@@ -85,6 +85,16 @@ void initGameState() {
   cardPool.add(GameCard.StandUp());
   cardPool.add(GameCard.StandUp());
 
+  cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
+
+  cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
+
   // For debugging
   cardPool.add(GameCard.HouseMeeting());
   cardPool.add(GameCard.SGDC());
@@ -94,16 +104,12 @@ void initGameState() {
   cardPool.add(GameCard.SGDC());
   cardPool.add(GameCard.StandUp());
   cardPool.add(GameCard.StandUp());
-  cardPool.add(GameCard.StandUp());
-  cardPool.add(GameCard.StandUp());
-  cardPool.add(GameCard.StandUp());
-  cardPool.add(GameCard.StandUp());
-  cardPool.add(GameCard.StandUp());
-  cardPool.add(GameCard.StandUp());
 
   itemPool.add(ItemCard.Treadmill());
   itemPool.add(ItemCard.Treadmill());
   itemPool.add(ItemCard.Treadmill());
+  itemPool.add(ItemCard.Treadmill());
+  itemPool.add(ItemCard.Hammock());
   itemPool.add(ItemCard.Hammock());
   itemPool.add(ItemCard.Hammock());
   itemPool.add(ItemCard.Hammock());
