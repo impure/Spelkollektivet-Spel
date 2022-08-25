@@ -75,14 +75,15 @@ class GameCard {
 	}
 
 	factory GameCard.SecondsTime() {
+		const int value = 700;
 		return GameCard(
 			name: "Seconds Time",
-			description: "+1 Card. Gain That card's value as a bonus.",
-			value: 700,
+			description: "+1 Card. Gain That card's value and this card's value as a bonus.",
+			value: value,
 			action: (Player player) {
 				if (player.deck.notEmpty) {
 					final GameCard card = player.deck.getRandomItem(rng);
-					player.bonusMoney += card.value;
+					player.bonusMoney += card.value + value;
 					player.hand.add(card);
 				}
 			},
@@ -92,8 +93,8 @@ class GameCard {
 	factory GameCard.Tacos() {
 		return GameCard(
 			name: "Tacos",
-			description: "Trash this card. +500 SEK.",
-			value: 500,
+			description: "Trash this card. +1500 SEK.",
+			value: 1500,
 			action: (Player player) {
 				player.bonusMoney += 500;
 			},
