@@ -259,9 +259,11 @@ class _MyHomePageState extends State<MyHomePage> {
 											),
 										],
 									),
-									const Flexible(
+									Flexible(
 										fit: FlexFit.tight,
-										child: SizedBox(),
+										child: Center(
+											child: Text("Item cards: ${currentPlayer.itemCards.keys}"),
+										),
 									),
 									SingleChildScrollView(
 										scrollDirection: Axis.horizontal,

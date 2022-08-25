@@ -94,9 +94,9 @@ class GameCard {
 		return GameCard(
 			name: "Tacos",
 			description: "Trash this card. +1500 SEK.",
-			value: 1500,
+			value: 500,
 			action: (Player player) {
-				player.bonusMoney += 500;
+				player.bonusMoney += 1500;
 			},
 			trashOnUse: true,
 		);
@@ -297,7 +297,7 @@ class ItemCard extends GameCard {
 		return ItemCard(
 			name: "Gaming Computer",
 			description: "+1 Buy",
-			value: 14000,
+			value: 10000,
 			action: (Player player) {
 				player.buysAvailable++;
 			},

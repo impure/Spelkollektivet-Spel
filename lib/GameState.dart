@@ -27,6 +27,7 @@ void incrementTurn() {
   if (currentPlayerIndex == startingPlayerIndex) {
     startingPlayerIndex = (startingPlayerIndex + 1) % players.length;
     currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+    cardPool.add(GameCard.Tacos());
     clearCardsCanBeBought();
     dealCardsThatCanBeBought();
   }
@@ -77,6 +78,8 @@ void initGameState() {
   cardPool.add(GameCard.SGDC());
   cardPool.add(GameCard.SGDC());
   cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
+  cardPool.add(GameCard.SGDC());
 
   cardPool.add(GameCard.StandUp());
   cardPool.add(GameCard.StandUp());
@@ -94,7 +97,13 @@ void initGameState() {
   cardPool.add(GameCard.SecondsTime());
   cardPool.add(GameCard.SecondsTime());
   cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
+  cardPool.add(GameCard.SecondsTime());
 
+  cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
+  cardPool.add(GameCard.Tacos());
   cardPool.add(GameCard.Tacos());
   cardPool.add(GameCard.Tacos());
   cardPool.add(GameCard.Tacos());
@@ -107,6 +116,8 @@ void initGameState() {
   cardPool.add(GameCard.Karaoke());
   cardPool.add(GameCard.Karaoke());
   cardPool.add(GameCard.Karaoke());
+  cardPool.add(GameCard.Karaoke());
+  cardPool.add(GameCard.Karaoke());
 
   cardPool.add(GameCard.FoodTruck());
   cardPool.add(GameCard.FoodTruck());
@@ -119,24 +130,11 @@ void initGameState() {
   cardPool.add(GameCard.TVShow());
   cardPool.add(GameCard.TVShow());
   cardPool.add(GameCard.TVShow());
-  cardPool.add(GameCard.TVShow());
-  cardPool.add(GameCard.TVShow());
-  cardPool.add(GameCard.TVShow());
 
   cardPool.add(GameCard.Movie());
   cardPool.add(GameCard.Movie());
   cardPool.add(GameCard.Movie());
   cardPool.add(GameCard.Movie());
-
-  // For debugging
-  cardPool.add(GameCard.HouseMeeting());
-  cardPool.add(GameCard.SGDC());
-  cardPool.add(GameCard.SGDC());
-  cardPool.add(GameCard.SGDC());
-  cardPool.add(GameCard.SGDC());
-  cardPool.add(GameCard.SGDC());
-  cardPool.add(GameCard.StandUp());
-  cardPool.add(GameCard.StandUp());
 
   itemPool.add(ItemCard.Treadmill());
   itemPool.add(ItemCard.Treadmill());
