@@ -44,13 +44,13 @@ class GameCard {
 	factory GameCard.StandUp() {
 		return GameCard(
 			name: "Stand Up",
-			description: "Discard the top card of your deck. +2 cards",
-			value: 200,
+			description: "Discard the top card of your deck. +3 cards",
+			value: 600,
 			action: (Player player) {
 				if (player.deck.notEmpty) {
 					player.discardPile.add(player.deck.getRandomItem(rng));
 				}
-				for (int i = 0; i < 2; i++) {
+				for (int i = 0; i < 3; i++) {
 					if (player.deck.notEmpty) {
 						player.hand.add(player.deck.getRandomItem(rng));
 					}
